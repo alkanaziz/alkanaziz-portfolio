@@ -1,4 +1,5 @@
 import './app.scss';
+import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <div>
       <section id="homepage" className="h-screen snap-center">
         <Navbar />
+        <Hero />
       </section>
       <section className="h-screen snap-center">Parallax</section>
       <section id="services" className="h-screen snap-center">
