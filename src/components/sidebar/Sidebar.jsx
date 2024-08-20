@@ -27,11 +27,11 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      className="sidebar flex flex-col items-center justify-center bg-slate-300 text-slate-900"
+      className="sidebar flex flex-col items-center justify-center text-slate-900"
       animate={open ? 'open' : 'closed'}
     >
       <motion.div
-        className="bg fixed bottom-0 right-0 top-0 w-96 bg-slate-300"
+        className="bg fixed bottom-0 right-0 top-0 z-10 w-96 bg-gradient-to-b from-slate-300 to-slate-100/30"
         variants={variants}
       >
         <Links setOpen={setOpen} />
