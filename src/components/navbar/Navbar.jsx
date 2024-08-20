@@ -2,11 +2,13 @@ import { FaGithub } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
 import { FaMedium } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
+import Sidebar from '../sidebar/Sidebar';
 
 const Navbar = () => {
   return (
     <div className="navbar h-24">
       {/* Sidebar */}
+      <Sidebar />
       <div className="wrapper m-auto flex h-full max-w-screen-xl items-center justify-between">
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
