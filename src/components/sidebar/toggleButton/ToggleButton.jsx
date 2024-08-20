@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const ToggleButton = ({ setOpen }) => {
   return (
     <button
-      className="fixed right-6 top-6 z-20 flex size-12 items-center justify-center rounded-full bg-slate-300 bg-slate-900 text-slate-300 hover:scale-110 active:scale-95"
+      className="fixed right-6 top-6 z-20 flex size-12 items-center justify-center rounded-full bg-slate-900 text-slate-300 hover:scale-110 active:scale-95"
       onClick={() => setOpen((prev) => !prev)}
     >
       <svg
