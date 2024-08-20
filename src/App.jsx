@@ -1,9 +1,12 @@
 import './app.scss';
+import Navbar from './components/navbar/Navbar';
 
 export default function App() {
   return (
     <div>
-      <section className="h-screen snap-center">Hero</section>
+      <section className="h-screen snap-center">
+        <Navbar />
+      </section>
       <section className="h-screen snap-center">Parallax</section>
       <section className="h-screen snap-center">Services</section>
       <section className="h-screen snap-center">Paralax</section>
