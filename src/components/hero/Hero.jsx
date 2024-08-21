@@ -39,7 +39,7 @@ const sliderVariants = {
 
 const Hero = () => {
   return (
-    <div className="hero relative h-[calc(100vh-100px)] overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+    <div className="hero relative h-[calc(100vh-96px)] overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
       <div className="wrapper m-auto flex h-full max-w-screen-xl items-center justify-between">
         <motion.div
           variants={textVariants}
