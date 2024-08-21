@@ -31,7 +31,7 @@ const Sidebar = () => {
       animate={open ? 'open' : 'closed'}
     >
       <motion.div
-        className="bg fixed bottom-0 right-0 top-0 z-10 w-96 bg-gradient-to-b from-slate-300 to-slate-100/30"
+        className="bg fixed bottom-0 right-0 top-0 z-20 w-96 bg-gradient-to-b from-slate-300 to-slate-100/30"
         variants={variants}
       >
         <Links setOpen={setOpen} />
