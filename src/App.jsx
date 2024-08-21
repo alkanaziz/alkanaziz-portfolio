@@ -1,6 +1,7 @@
 import './app.scss';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
+import Parallax from './components/parallax/Parallax';
 
 export default function App() {
   return (
@@ -9,12 +10,15 @@ export default function App() {
         <Navbar />
         <Hero />
       </section>
-      <section className="h-screen snap-center">Parallax</section>
+      <section className="h-screen snap-center">
+        <Parallax type="services" />
+      </section>
       <section id="services" className="h-screen snap-center">
         Services
       </section>
-      <section className="h-screen snap-center">Paralax</section>
-      <section id='portfolio' className="h-screen snap-center">Portfolio1</section>
+      <section id='portfolio' className="h-screen snap-center">
+        <Parallax type="portfolio" />
+      </section>
       <section className="h-screen snap-center">Portfolio2</section>
       <section className="h-screen snap-center">Portfolio3</section>
       <section id='about' className="h-screen snap-center">About</section>
