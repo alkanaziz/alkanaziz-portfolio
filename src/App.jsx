@@ -2,6 +2,7 @@ import './app.scss';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
 import Parallax from './components/parallax/Parallax';
+import Portfolio from './components/portfolio/Portfolio';
 import Services from './components/services/Services';
 
 export default function App() {
@@ -20,8 +21,7 @@ export default function App() {
       <section id='portfolio' className="h-screen snap-center">
         <Parallax type="portfolio" />
       </section>
-      <section className="h-screen snap-center">Portfolio2</section>
-      <section className="h-screen snap-center">Portfolio3</section>
+      <Portfolio />
       <section id='about' className="h-screen snap-center">About</section>
       <section id='contact' className="h-screen snap-center">Contact</section>
     </div>
