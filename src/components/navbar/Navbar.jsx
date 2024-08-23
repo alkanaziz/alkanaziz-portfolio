@@ -9,12 +9,12 @@ const Navbar = () => {
     <div className="navbar h-24">
       {/* Sidebar */}
       <Sidebar />
-      <div className="wrapper m-auto flex h-full max-w-screen-xl items-center justify-between">
+      <div className="wrapper m-auto flex h-full max-w-screen-xl items-center md:justify-between justify-start p-5">
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="font-bold"
+          className="font-bold hidden md:block"
         >
           Web Developer Alkan
         </motion.span>
