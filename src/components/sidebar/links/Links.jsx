@@ -25,12 +25,12 @@ const Links = ({ setOpen }) => {
 
   return (
     <motion.div
-      className="links absolute flex size-full flex-col items-center justify-center gap-5"
+      className="links absolute flex size-full flex-col items-center justify-center md:gap-5"
       variants={variants}
     >
       {links.map((link) => (
         <motion.a
-          className="text-3xl font-semibold hover:text-slate-300 hover:bg-slate-900 p-2 rounded-lg"
+          className="md:text-3xl text-2xl font-semibold hover:text-slate-300 hover:bg-slate-900 p-2 rounded-lg"
           href={`#${link.toLowerCase()}`}
           key={link}
           variants={itemVariants}
