@@ -39,13 +39,13 @@ const sliderVariants = {
 
 const Hero = () => {
   return (
-    <div className="hero relative h-[calc(100vh-96px)] overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="wrapper m-auto flex h-full max-w-screen-xl items-center justify-between">
+    <div className="hero md:relative h-[calc(100vh-96px)] overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+      <div className="wrapper m-auto flex h-full max-w-screen-xl flex-col md:flex-row items-center">
         <motion.div
           variants={textVariants}
           initial="initial"
           animate="animate"
-          className="textContainer flex h-full w-1/2 flex-col justify-center gap-10"
+          className="textContainer flex w-full h-1/2 md:h-full md:w-1/2 flex-col justify-center items-center md:items-start gap-5 md:gap-10"
         >
           <motion.h2
             variants={textVariants}
@@ -53,19 +53,19 @@ const Hero = () => {
           >
             ALKAN AZIZ
           </motion.h2>
-          <motion.h1 variants={textVariants} className="text-8xl">
+          <motion.h1 variants={textVariants} className="text-4xl md:text-8xl">
             Web Developer
           </motion.h1>
-          <motion.div variants={textVariants} className="buttons flex gap-5">
+          <motion.div variants={textVariants} className="buttons z-10 flex gap-5">
             <motion.button
               variants={textVariants}
-              className="rounded-xl border p-5 cursor-pointer z-50"
+              className="rounded-xl border p-5 cursor-pointer"
             >
               See the Latest Works
             </motion.button>
             <motion.button
               variants={textVariants}
-              className="rounded-xl border p-5 cursor-pointer z-50"
+              className="rounded-xl border p-5 cursor-pointer"
             >
               Contact Me
             </motion.button>
@@ -87,8 +87,8 @@ const Hero = () => {
       >
         <div className="slidingText">alkan aziz</div>
       </motion.div>
-      <div className="absolute right-0 top-0 h-full">
-        <img src="/hero.png" alt="hero man picture" />
+      <div className="absolute md:right-0 md:top-0 bottom-0 h-1/2 w-full md:w-max md:h-full">
+        <img className='object-cover' src="/hero.png" alt="hero man picture" />
       </div>
     </div>
   );
