@@ -1,4 +1,5 @@
 import './app.scss';
+import Contact from './components/contact/Contact';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
 import Parallax from './components/parallax/Parallax';
@@ -18,12 +19,13 @@ export default function App() {
       <section id="services" className="h-screen snap-center">
         <Services />
       </section>
-      <section id='portfolio' className="h-screen snap-center">
+      <section id="portfolio" className="h-screen snap-center">
         <Parallax type="portfolio" />
       </section>
       <Portfolio />
-      <section id='about' className="h-screen snap-center">About</section>
-      <section id='contact' className="h-screen snap-center">Contact</section>
+      <section id="contact" className="h-screen snap-center">
+        <Contact />
+      </section>
     </div>
   );
 }
