@@ -70,29 +70,29 @@ const SingleProject = ({ project }) => {
   return (
     <section className="project h-screen snap-center">
       <div className="container m-auto flex size-full items-center justify-center overflow-hidden">
-        <div className="wrapper flex h-full max-w-7xl items-center justify-center gap-12">
+        <div className="wrapper flex md:flex-row flex-col h-full max-w-7xl items-center justify-center mx-5 mt-36 md:m-0 gap-12">
           <motion.div
             variants={imgVariants}
             initial="initial"
             whileInView="animate"
-            className="imageContainer h-1/2 flex-1"
+            className="imageContainer max-h-80 w-full h-1/2 flex-1"
             ref={ref}
           >
             <img
               src={project.img}
               alt={project.title}
-              className="size-full object-cover"
+              className="size-full object-contain md:object-cover"
             />
           </motion.div>
           <motion.div
-            className="textContainer flex flex-1 flex-col justify-center gap-8"
+            className="textContainer flex flex-1 flex-col items-center md:items-start md:justify-center gap-8"
             // style={{ y }}
             variants={textVariants}
             initial="initial"
             whileInView="animate"
           >
-            <h3 className="text-7xl">{project.title}</h3>
-            <p className="text-xl">{project.desc}</p>
+            <h3 className="text-5xl md:text-7xl">{project.title}</h3>
+            <p className="text-lg md:text-xl">{project.desc}</p>
             <button className="w-48 rounded-lg bg-orange-400 p-2">
               See Demo
             </button>
@@ -114,7 +114,7 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio relative" ref={ref}>
-      <div className="progress sticky left-0 top-0 pt-12 text-center text-4xl font-black text-orange-400">
+      <div className="progress z-10 sticky left-0 top-0 pt-8 text-center text-3xl md:text-4xl font-black text-orange-400">
         <h2>Featured Works</h2>
         <motion.div
           style={{ scaleX }}
