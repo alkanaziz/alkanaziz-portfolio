@@ -70,12 +70,12 @@ const SingleProject = ({ project }) => {
   return (
     <section className="project h-screen snap-center">
       <div className="container m-auto flex size-full items-center justify-center overflow-hidden">
-        <div className="wrapper flex md:flex-row flex-col h-full max-w-7xl items-center justify-center mx-5 mt-36 md:m-0 gap-12">
+        <div className="wrapper mx-5 mt-36 flex h-full max-w-7xl flex-col items-center justify-center gap-12 md:m-0 md:flex-row">
           <motion.div
             variants={imgVariants}
             initial="initial"
             whileInView="animate"
-            className="imageContainer max-h-80 w-full h-1/2 flex-1"
+            className="imageContainer h-1/2 max-h-80 w-full flex-1"
             ref={ref}
           >
             <img
@@ -85,7 +85,7 @@ const SingleProject = ({ project }) => {
             />
           </motion.div>
           <motion.div
-            className="textContainer flex flex-1 flex-col items-center md:items-start md:justify-center gap-8"
+            className="textContainer flex flex-1 flex-col items-center gap-8 md:items-start md:justify-center"
             // style={{ y }}
             variants={textVariants}
             initial="initial"
@@ -114,7 +114,7 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio relative" ref={ref}>
-      <div className="progress z-10 sticky left-0 top-0 pt-8 text-center text-3xl md:text-4xl font-black text-orange-400">
+      <div className="progress sticky left-0 top-0 z-10 pt-8 text-center text-3xl font-black text-orange-400 md:text-4xl">
         <h2>Featured Works</h2>
         <motion.div
           style={{ scaleX }}
