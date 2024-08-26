@@ -16,8 +16,6 @@ const Cursor = () => {
     };
   }, []);
 
-  console.log(position);
-
   return (
     <motion.div
       animate={{ x: position.x+10, y: position.y+10 }}
