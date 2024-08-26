@@ -73,13 +73,16 @@ const Contact = () => {
       variants={variants}
       initial="initial"
       whileInView="animate"
-      className="contact m-auto flex h-full max-w-7xl items-center gap-12"
+      className="contact m-auto flex h-full w-full max-w-7xl flex-col items-center gap-12 overflow-hidden p-3 md:flex-row md:p-0"
     >
       <motion.div
         variants={variants}
-        className="textContainer flex flex-1 flex-col gap-10"
+        className="textContainer mt-20 flex flex-1 flex-col items-center gap-5 text-center md:mt-0 md:items-start md:gap-10 md:text-left"
       >
-        <motion.h2 variants={variants} className="text-8xl">
+        <motion.h2
+          variants={variants}
+          className="text-3xl font-black md:text-8xl"
+        >
           Let's Work Together
         </motion.h2>
         <motion.div variants={variants} className="item">
@@ -95,7 +98,7 @@ const Contact = () => {
           <span className="font-normal">Erfurt, Germany</span>
         </motion.div>
       </motion.div>
-      <motion.div className="formContainer relative flex-1">
+      <motion.div className="formContainer relative w-full flex-1 p-4 md:p-0">
         <motion.div
           className="phoneSvg absolute z-[-1] m-auto"
           initial={{ opacity: 1 }}
@@ -103,7 +106,7 @@ const Contact = () => {
           transition={{ delay: 3, duration: 1 }}
         >
           <svg
-            width="450px"
+            className="w-full"
             stroke="orange"
             height="450px"
             viewBox="0 0 32.666 32.666"
@@ -136,10 +139,17 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
-          className="flex flex-col gap-5 *:rounded *:border *:bg-slate-900 *:p-3 *:placeholder-slate-500"
+          className="flex flex-col gap-5"
         >
-          <input type="text" placeholder="Name" name="name" required />
           <input
+            className="rounded border bg-slate-900 p-3 placeholder-slate-500"
+            type="text"
+            placeholder="Name"
+            name="name"
+            required
+          />
+          <input
+            className="rounded border bg-slate-900 p-3 placeholder-slate-500"
             type="email"
             name="email"
             id=""
@@ -147,6 +157,7 @@ const Contact = () => {
             required
           />
           <textarea
+            className="rounded border bg-slate-900 p-3 placeholder-slate-500"
             name="message"
             id=""
             rows={8}
@@ -156,7 +167,7 @@ const Contact = () => {
           ></textarea>
           <button
             disabled={loading}
-            className={`btn border-none !bg-orange-400 text-slate-900 hover:!bg-orange-300 active:scale-95 ${loading && 'cursor-not-allowed !bg-gray-500'}`}
+            className={`btn rounded !bg-orange-400 p-3 text-slate-900 hover:!bg-orange-300 active:scale-95 ${loading && 'cursor-not-allowed !bg-gray-500'}`}
           >
             Send
           </button>
@@ -169,7 +180,7 @@ const Contact = () => {
             <span className="text-green-500">Message sent successfully!</span>
           )}
           {loading && (
-            <ImSpinner className="animate-spin border-none text-4xl text-green-500" />
+            <ImSpinner className="animate-spin border-none text-4xl text-orange-400" />
           )}
         </motion.form>
       </motion.div>
