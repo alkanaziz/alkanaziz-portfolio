@@ -70,7 +70,7 @@ const SingleProject = ({ project }) => {
   return (
     <section className="project h-screen snap-center">
       <div className="container m-auto flex size-full items-center justify-center overflow-hidden">
-        <div className="wrapper mx-5 mt-36 flex h-full max-w-7xl flex-col items-center justify-center gap-12 md:m-0 md:flex-row">
+        <div className="wrapper mx-5 mt-36 flex h-full max-w-7xl flex-col items-center justify-center md:gap-12 md:m-0 md:flex-row">
           <motion.div
             variants={imgVariants}
             initial="initial"
