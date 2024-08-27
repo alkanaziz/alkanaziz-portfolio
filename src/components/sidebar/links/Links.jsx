@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { BiLogoGmail } from 'react-icons/bi';
 
 const variants = {
   open: {
@@ -30,7 +32,7 @@ const Links = ({ setOpen }) => {
     >
       {links.map((link) => (
         <motion.a
-          className="md:text-3xl text-2xl font-semibold hover:text-slate-300 hover:bg-slate-900 p-2 rounded-lg"
+          className="rounded-lg p-2 text-2xl font-semibold hover:bg-slate-900 hover:text-slate-300 md:text-3xl"
           href={`#${link.toLowerCase()}`}
           key={link}
           variants={itemVariants}
@@ -41,6 +43,34 @@ const Links = ({ setOpen }) => {
           {link}
         </motion.a>
       ))}
+      <motion.div variants={itemVariants} className="social flex gap-5">
+        <a
+          onClick={() => setOpen(false)}
+          href="https://github.com/alkanaziz"
+          target="_blank"
+        >
+          <FaGithub
+            className="hover:scale-110 hover:text-[#171515] active:scale-95"
+            size={20}
+          />
+        </a>
+        <a
+          onClick={() => setOpen(false)}
+          href="https://www.linkedin.com/in/alkanaziz/"
+          target="_blank"
+        >
+          <FaLinkedin
+            className="hover:scale-110 hover:text-[#0e76a8] active:scale-95"
+            size={20}
+          />
+        </a>
+        <a onClick={() => setOpen(false)} href="mailto:alkanaziz@gmail.com">
+          <BiLogoGmail
+            className="hover:scale-110 hover:text-[#c71610] active:scale-95"
+            size={20}
+          />
+        </a>
+      </motion.div>
     </motion.div>
   );
 };
