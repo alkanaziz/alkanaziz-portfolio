@@ -73,11 +73,11 @@ const Contact = () => {
       variants={variants}
       initial="initial"
       whileInView="animate"
-      className="contact m-auto flex h-full w-full max-w-7xl flex-col items-center gap-12 overflow-hidden p-3 md:flex-row md:p-0"
+      className="contact m-auto flex h-full w-full max-w-7xl flex-col items-center md:gap-12 overflow-hidden p-3 md:flex-row md:p-0"
     >
       <motion.div
         variants={variants}
-        className="textContainer mt-20 flex flex-1 flex-col items-center gap-5 text-center md:mt-0 md:items-start md:gap-10 md:text-left"
+        className="textContainer mt-16 flex flex-col items-center gap-5 text-center md:mt-0 md:items-start md:gap-10 md:text-left"
       >
         <motion.h2
           variants={variants}
@@ -98,7 +98,7 @@ const Contact = () => {
           <span className="font-normal">Erfurt, Germany</span>
         </motion.div>
       </motion.div>
-      <motion.div className="formContainer relative w-full flex-1 p-4 md:p-0">
+      <motion.div className="formContainer relative w-full p-4 md:p-0">
         <motion.div
           className="phoneSvg absolute z-[-1] m-auto"
           initial={{ opacity: 1 }}
