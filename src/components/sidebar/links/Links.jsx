@@ -43,34 +43,37 @@ const Links = ({ setOpen }) => {
           {link}
         </motion.a>
       ))}
-      <motion.div variants={itemVariants} className="social flex gap-5">
-        <a
-          onClick={() => setOpen(false)}
-          href="https://github.com/alkanaziz"
-          target="_blank"
-        >
-          <FaGithub
-            className="hover:scale-110 hover:text-[#171515] active:scale-95"
-            size={20}
-          />
-        </a>
-        <a
-          onClick={() => setOpen(false)}
-          href="https://www.linkedin.com/in/alkanaziz/"
-          target="_blank"
-        >
-          <FaLinkedin
-            className="hover:scale-110 hover:text-[#0e76a8] active:scale-95"
-            size={20}
-          />
-        </a>
-        <a onClick={() => setOpen(false)} href="mailto:alkanaziz@gmail.com">
-          <BiLogoGmail
-            className="hover:scale-110 hover:text-[#c71610] active:scale-95"
-            size={20}
-          />
-        </a>
-      </motion.div>
+      <div>
+        <motion.hr variants={itemVariants} className="my-5 border-slate-500" />
+        <motion.div variants={itemVariants} className="social flex gap-5">
+          <a
+            onClick={() => setOpen(false)}
+            href="https://github.com/alkanaziz"
+            target="_blank"
+          >
+            <FaGithub
+              className="hover:scale-110 hover:text-[#171515] active:scale-95"
+              size={20}
+            />
+          </a>
+          <a
+            onClick={() => setOpen(false)}
+            href="https://www.linkedin.com/in/alkanaziz/"
+            target="_blank"
+          >
+            <FaLinkedin
+              className="hover:scale-110 hover:text-[#0e76a8] active:scale-95"
+              size={20}
+            />
+          </a>
+          <a onClick={() => setOpen(false)} href="mailto:alkanaziz@gmail.com">
+            <BiLogoGmail
+              className="hover:scale-110 hover:text-[#c71610] active:scale-95"
+              size={20}
+            />
+          </a>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
