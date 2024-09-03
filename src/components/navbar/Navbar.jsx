@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Sidebar from '../sidebar/Sidebar';
 
 const Navbar = () => {
-  const links = ['Homepage', 'Services', 'Portfolio', 'About', 'Contact'];
+  const links = ['Home', 'Skills', 'Portfolio', 'Contact'];
 
   return (
     <div className="navbar h-24">
