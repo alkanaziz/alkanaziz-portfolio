@@ -14,18 +14,18 @@ const Parallax = ({ type }) => {
   return (
     <div
       ref={ref}
-      className={`parallax relative flex size-full items-center justify-center overflow-hidden bg-gradient-to-b from-slate-800 ${type === 'services' ? 'to-slate-900' : 'to-slate-700'}`}
+      className={`parallax relative flex size-full items-center justify-center overflow-hidden bg-gradient-to-b from-slate-800 ${type === 'skills' ? 'to-slate-900' : 'to-slate-700'}`}
     >
       <motion.h1
         style={{ y: yText }}
         className="text-center text-6xl md:text-8xl"
       >
-        {type === 'services' ? 'What We Do?' : 'What We Did?'}
+        {type === 'skills' ? 'What I Can?' : 'What I Did?'}
       </motion.h1>
       <motion.div className="mountains absolute z-10 size-full bg-[url('/mountains.png')] bg-contain bg-bottom bg-no-repeat md:bg-cover"></motion.div>
       <motion.div
         style={{ y: yBg }}
-        className={`planets absolute z-[5] size-full ${type === 'services' ? "bg-[url('/planets.png')]" : "bg-[url('/sun.png')]"} bg-contain bg-bottom bg-no-repeat md:bg-cover`}
+        className={`planets absolute z-[5] size-full ${type === 'skills' ? "bg-[url('/planets.png')]" : "bg-[url('/sun.png')]"} bg-contain bg-bottom bg-no-repeat md:bg-cover`}
       ></motion.div>
       <motion.div
         style={{ x: yBg }}
