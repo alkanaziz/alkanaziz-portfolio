@@ -23,7 +23,7 @@ const itemVariants = {
 };
 
 const Links = ({ setOpen }) => {
-  const links = ['Homepage', 'Services', 'Portfolio', 'About', 'Contact'];
+  const links = ['Home', 'Skills', 'Portfolio', 'Contact'];
 
   return (
     <motion.div
