@@ -43,6 +43,14 @@ const projects = [
     href: 'https://alkanaziz.github.io/ui-ux-nonamepeople-page/',
     github: 'https://github.com/alkanaziz/ui-ux-nonamepeople-page',
   },
+  {
+    id: 6,
+    title: 'Search Movies and Add to Favorite',
+    img: '/img/Project-6.png',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    href: 'https://vue-project-movie-search.vercel.app/',
+    github: 'https://github.com/alkanaziz/vue-project-workshop',
+  },
 ];
 
 const imgVariants = {
