@@ -123,7 +123,7 @@ const Skills = () => {
           variants={isMobile ? container : null}
           initial={isMobile ? 'hidden' : 'visible'}
           whileInView="visible" // Trigger the animation when in view
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0 }}
           className="skills flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap"
         >
           {skills.map((skill) => {
