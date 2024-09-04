@@ -62,7 +62,7 @@ const imgVariants = {
 
 const textVariants = {
   initial: {
-    y: -500,
+    y: -300,
     opacity: 0,
   },
   animate: {
@@ -141,7 +141,7 @@ const SingleProject = ({ project }) => {
             whileInView="animate"
           >
             <h3 className="text-5xl md:text-7xl">{project.title}</h3>
-            <p className="text-lg md:text-xl">{project.desc}</p>
+            {/* <p className="text-lg md:text-xl">{project.desc}</p> */}
             <button className="w-48 rounded-lg bg-orange-400 p-2">
               See Demo
             </button>
