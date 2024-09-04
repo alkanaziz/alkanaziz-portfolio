@@ -54,7 +54,7 @@ const Hero = () => {
           >
             ALKAN AZIZ
           </motion.h2>
-          <motion.h1 variants={textVariants} className="text-4xl md:text-7xl">
+          <motion.h1 variants={textVariants} className="text-4xl z-10 md:text-7xl">
             Web Developer
           </motion.h1>
           <motion.div variants={textVariants} animate="scrollButton">
