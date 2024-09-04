@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 // Helper function to calculate experience in months
 const calculateExperience = (startDate) => {
@@ -19,21 +19,24 @@ const getExperienceLevel = (months) => {
   return { level: 'Advanced', color: 'bg-green-500' };
 };
 
-const variants = {
-  initial: {
-    x: -500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-    },
-  },
+// Hook to determine screen size (responsive breakpoint handling)
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Use md breakpoint (768px)
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
 };
 
+// Skills data
 const skills = [
   {
     name: 'HTML',
@@ -82,52 +85,67 @@ const skills = [
   },
 ];
 
-const Skills = () => {
-  const ref = useRef();
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-  const isInView = useInView(ref, { margin: '-100px' });
+const item = {
+  hidden: { x: -50, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
+const Skills = () => {
+  const isMobile = useIsMobile();
 
   return (
-    <motion.div
-      variants={variants}
-      initial="initial"
-      animate={'animate'}
-      ref={ref}
-      className="services flex size-full flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-800 p-3"
-    >
-      <motion.div
-        variants={variants}
-        className="titleContainer flex w-full flex-col items-center justify-center"
-      >
+    <div className="services flex size-full flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-800 p-3">
+      <div className="titleContainer flex w-full flex-col items-center justify-center">
         <div className="title flex flex-col items-center gap-6 text-center md:flex-row md:gap-12">
           <h2 className="text-4xl font-thin md:text-7xl">
             <strong className="font-black hover:text-orange-400">Skills</strong>
           </h2>
         </div>
-      </motion.div>
-      <motion.div
-        variants={variants}
-        whileInView={isInView ? 'animate' : 'initial'}
-        className="listContainer m-auto flex w-full max-w-7xl flex-col items-center justify-center md:flex-row"
-      >
-        <motion.div className="skill flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap">
+      </div>
+      <div className="listContainer m-auto flex w-full max-w-7xl flex-col items-center justify-center md:flex-row">
+        <motion.div
+          variants={isMobile ? container : null}
+          initial={isMobile ? 'hidden' : 'visible'}
+          whileInView="visible" // Trigger the animation when in view
+          viewport={{ once: false, amount: 0.2 }}
+          className="skills flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap"
+        >
           {skills.map((skill) => {
             const experience = calculateExperience(skill.startDate);
             const { level, color } = getExperienceLevel(experience);
-            const progressWidth = Math.min((experience / 12) * 100, 100); // Max %100
+            const progressWidth = Math.min((experience / 12) * 100, 100); // Cap progress width to 100%
 
             return (
               <motion.div
-                variants={variants}
                 key={skill.name}
-                className="group flex min-w-[300px] flex-col items-center gap-6 rounded-2xl border border-solid border-slate-300 px-2 py-6 shadow-xl"
+                variants={item}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.5 }} // Adjust viewport settings to trigger animation on item view
+                className="skill group flex min-w-[300px] flex-col items-center gap-6 rounded-2xl border border-solid border-slate-300 px-2 py-6 shadow-xl"
               >
                 <img
                   src={skill.img}
                   alt={`${skill.name} icon`}
-                  className="transition-all duration-500 group-hover:scale-125 group-hover:rounded-lg"
+                  className="h-8 transition-all duration-500 group-hover:scale-125 group-hover:rounded-lg"
                 />
-                <h3 className="text-2xl hidden font-black">{skill.name}</h3>
+                <h3 className="hidden text-2xl font-black">{skill.name}</h3>
 
                 {/* Experience Level Badge */}
                 <span
@@ -145,17 +163,17 @@ const Skills = () => {
                 </div>
 
                 {/* Experience Text */}
-                {/* <span className="text-lg">
+                <span className="text-lg">
                   {experience > 0
-                    ? `${experience} month(s) experience`
+                    ? `${experience} month${experience === 1 ? '' : 's'} experience`
                     : 'Less than a month experience'}
-                </span> */}
+                </span>
               </motion.div>
             );
           })}
         </motion.div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
