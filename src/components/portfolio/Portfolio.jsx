@@ -100,24 +100,24 @@ const SingleProject = ({ project }) => {
               alt={project.title}
               className="w-11/12 rounded-xl shadow-2xl transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-125 group-hover:brightness-50"
             />
-            <div className="absolute hidden h-80 w-72 sm:w-80 flex-col justify-evenly transition-all ease-in-out group-hover:flex">
+            <div className="absolute hidden h-80 w-72 flex-col justify-evenly transition-all ease-in-out group-hover:flex sm:w-80">
               <h3 className="text-2xl font-black text-orange-400">
                 <a
                   href={project.href}
                   target="_blank"
                   aria-label={`See ${project.title} demo`}
-                  className='[text-shadow:1px_1px_orange]'
+                  className="[text-shadow:1px_1px_orange]"
                 >
                   {project.title}
                 </a>
               </h3>
-              <div className="flex gap-2 text-slate-200 text-sm md:text-lg">
+              <div className="flex gap-2 text-sm text-slate-200 md:text-lg">
                 <a
                   href={project.href}
                   target="_blank"
                   aria-label={`See ${project.title} demo`}
                 >
-                  <button className="flex gap-2 justify-center items-center rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
+                  <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
                     See Demo <FaExternalLinkAlt className="size-4" />
                   </button>
                 </a>
@@ -126,7 +126,7 @@ const SingleProject = ({ project }) => {
                   target="_blank"
                   aria-label={`See ${project.title} code`}
                 >
-                  <button className="flex gap-2 justify-center items-center rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
+                  <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
                     See Code <FaGithub className="size-4" />
                   </button>
                 </a>
@@ -142,8 +142,10 @@ const SingleProject = ({ project }) => {
           >
             <h3 className="text-5xl md:text-7xl">{project.title}</h3>
             {/* <p className="text-lg md:text-xl">{project.desc}</p> */}
-            <button className="w-48 rounded-lg bg-orange-400 p-2">
-              See Demo
+            <button className="w-48 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
+              <a href={project.href} target="_blank">
+                See Demo
+              </a>
             </button>
           </motion.div>
         </div>
