@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 // Helper function to calculate experience in months
 const calculateExperience = (startDate) => {
@@ -17,23 +16,6 @@ const getExperienceLevel = (months) => {
   if (months < 3) return { level: 'Beginner', color: 'bg-red-500' };
   if (months < 12) return { level: 'Intermediate', color: 'bg-yellow-500' };
   return { level: 'Advanced', color: 'bg-green-500' };
-};
-
-// Hook to determine screen size (responsive breakpoint handling)
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Use md breakpoint (768px)
-    };
-
-    handleResize(); // Set initial state
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return isMobile;
 };
 
 // Skills data
@@ -102,43 +84,35 @@ const item = {
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.5 },
   },
 };
 
 const Skills = () => {
-  const isMobile = useIsMobile();
-
   return (
-    <div className="services flex size-full flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-800 p-3">
-      <div className="titleContainer flex w-full flex-col items-center justify-center">
-        <div className="title flex flex-col items-center gap-6 text-center md:flex-row md:gap-12">
-          <h2 className="text-4xl font-thin md:text-7xl">
-            <strong className="font-black hover:text-orange-400">Skills</strong>
-          </h2>
-        </div>
+    <div className="services flex size-full flex-col items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 p-3">
+      <div className="titleContainer mb-3 pt-1 text-center">
+        <h2 className="text-4xl font-thin md:text-7xl">
+          <strong className="font-black hover:text-orange-400">Skills</strong>
+        </h2>
       </div>
-      <div className="listContainer m-auto flex w-full max-w-7xl flex-col items-center justify-center md:flex-row">
+      <div className="listContainer mx-auto flex w-full max-w-7xl flex-col items-center justify-center md:flex-row">
         <motion.div
-          variants={isMobile ? container : null}
-          initial={isMobile ? 'hidden' : 'visible'}
-          whileInView="visible" // Trigger the animation when in view
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: false, amount: 0 }}
-          className="skills flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap"
+          className="skills grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-center"
         >
           {skills.map((skill) => {
             const experience = calculateExperience(skill.startDate);
             const { level, color } = getExperienceLevel(experience);
-            const progressWidth = Math.min((experience / 12) * 100, 100); // Cap progress width to 100%
+            const progressWidth = Math.min((experience / 18) * 100, 100);
 
             return (
               <motion.div
                 key={skill.name}
                 variants={item}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.5 }} // Adjust viewport settings to trigger animation on item view
-                className="skill group flex min-w-[300px] flex-col items-center gap-6 rounded-2xl border border-solid border-slate-300 px-2 py-6 shadow-xl"
+                className="skill group flex flex-col items-center gap-6 rounded-2xl border border-solid border-slate-300 px-2 py-3 shadow-xl md:min-w-[300px]"
               >
                 <img
                   src={skill.img}
@@ -149,7 +123,7 @@ const Skills = () => {
 
                 {/* Experience Level Badge */}
                 <span
-                  className={`rounded-full px-2 py-1 text-sm font-semibold text-white ${color}`}
+                  className={`hidden rounded-full px-2 py-1 text-sm font-semibold text-white lg:flex ${color}`}
                 >
                   {level}
                 </span>
@@ -163,7 +137,7 @@ const Skills = () => {
                 </div>
 
                 {/* Experience Text */}
-                <span className="text-lg">
+                <span className="hidden text-lg lg:flex">
                   {experience > 0
                     ? `${experience} month${experience === 1 ? '' : 's'} experience`
                     : 'Less than a month experience'}
