@@ -126,7 +126,7 @@ const SingleProject = ({ project }) => {
                   aria-label={`See ${project.title} demo`}
                 >
                   <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
-                    See Demo <FaExternalLinkAlt className="size-4" />
+                    <FaExternalLinkAlt className="size-4" /> Demo
                   </button>
                 </a>
                 <a
@@ -135,20 +135,22 @@ const SingleProject = ({ project }) => {
                   aria-label={`See ${project.title} code`}
                 >
                   <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
-                    See Code <FaGithub className="size-4" />
+                    Code <FaGithub className="size-4" />
                   </button>
                 </a>
               </div>
             </div>
           </motion.div>
           <motion.div
-            className="textContainer flex flex-1 flex-col items-center gap-8 md:items-start md:justify-center"
+            className="textContainer mt-3 flex flex-1 flex-col items-center gap-8 md:mt-0 md:items-start md:justify-center"
             // style={{ y }}
             variants={textVariants}
             initial="initial"
             whileInView="animate"
           >
-            <h3 className="text-5xl md:text-7xl">{project.title}</h3>
+            <h3 className="text-center text-3xl md:text-left md:text-7xl">
+              {project.title}
+            </h3>
             {/* <p className="text-lg md:text-xl">{project.desc}</p> */}
             <button className="w-48 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
               <a href={project.href} target="_blank">
@@ -174,7 +176,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio relative" ref={ref}>
       <div className="progress sticky left-0 top-0 z-10 pt-8 text-center text-3xl font-black text-orange-400 md:text-4xl">
-        <h2>Featured Works</h2>
+        <h2>Demo Works</h2>
         <motion.div
           style={{ scaleX }}
           className="progressBar h-2 rounded-full bg-slate-300"
