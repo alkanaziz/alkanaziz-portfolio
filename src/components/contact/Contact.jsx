@@ -73,7 +73,7 @@ const Contact = () => {
       variants={variants}
       initial="initial"
       whileInView="animate"
-      className="contact m-auto flex h-full w-full max-w-7xl flex-col items-center md:gap-12 overflow-hidden p-3 md:flex-row md:p-0"
+      className="contact m-auto flex h-[calc(100vh-96px)] w-full max-w-7xl flex-col items-center overflow-hidden p-3 md:flex-row md:gap-12 md:p-0"
     >
       <motion.div
         variants={variants}
@@ -98,17 +98,16 @@ const Contact = () => {
           <span className="font-normal">Erfurt, Germany</span>
         </motion.div>
       </motion.div>
-      <motion.div className="formContainer relative w-full p-4 md:p-0">
+      <motion.div className="formContainer flex flex-col justify-center items-center relative w-full p-4 md:p-0">
         <motion.div
-          className="phoneSvg absolute z-[-1] m-auto"
+          className="phoneSvg absolute z-[-1]"
           initial={{ opacity: 1 }}
           whileInView={{ opacity: 0 }}
           transition={{ delay: 3, duration: 1 }}
         >
           <svg
-            className="w-full"
+            className="w-60 lg:w-[450px]"
             stroke="orange"
-            height="450px"
             viewBox="0 0 32.666 32.666"
           >
             <motion.path
@@ -139,7 +138,7 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-5 w-full"
         >
           <input
             className="rounded border bg-slate-900 p-3 placeholder-slate-500"
