@@ -77,7 +77,7 @@ const Contact = () => {
     >
       <motion.div
         variants={variants}
-        className="textContainer mt-16 flex flex-col items-center gap-5 text-center md:mt-0 md:items-start md:gap-10 md:text-left"
+        className="textContainer mt-16 flex flex-col items-center gap-3 text-center md:mt-0 md:items-start md:gap-10 md:gap-5 md:text-left"
       >
         <motion.h2
           variants={variants}
@@ -85,20 +85,31 @@ const Contact = () => {
         >
           Let's Work Together
         </motion.h2>
-        <motion.div variants={variants} className="item">
-          <h3 className="text-2xl font-black">E-Mail</h3>
+        <motion.div
+          variants={variants}
+          className="item flex gap-3 md:flex-col md:gap-1"
+        >
+          <h3 className="text-lg font-black md:text-2xl">E-Mail:</h3>
           <span className="font-normal">alkanaziz[at]gmail.com</span>
         </motion.div>
-        <motion.div variants={variants} className="item">
-          <h3 className="text-2xl font-black">Phone</h3>
+        <motion.div
+          variants={variants}
+          className="item flex gap-3 md:flex-col md:gap-1"
+        >
+          <h3 className="text-lg font-black md:text-2xl">Phone:</h3>
           <span className="font-normal">+49 162 9105911</span>
         </motion.div>
-        <motion.div variants={variants} className="item">
-          <h3 className="text-2xl font-black">Address</h3>
-          <span className="font-normal">Erfurt, Germany</span>
+        <motion.div
+          variants={variants}
+          className="item flex gap-3 md:flex-col md:gap-1"
+        >
+          <h3 className="text-lg font-black md:text-2xl">Address:</h3>
+          <span className="font-normal">
+            Erfurt, Germany <span className='text-xs'>(Open to move)</span>
+          </span>
         </motion.div>
       </motion.div>
-      <motion.div className="formContainer flex flex-col justify-center items-center relative w-full p-4 md:p-0">
+      <motion.div className="formContainer relative flex w-full flex-col items-center justify-center p-4 md:p-0">
         <motion.div
           className="phoneSvg absolute z-[-1]"
           initial={{ opacity: 1 }}
@@ -138,7 +149,7 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
-          className="flex flex-col gap-5 w-full"
+          className="flex w-full flex-col gap-5"
         >
           <input
             className="rounded border bg-slate-900 p-3 placeholder-slate-500"
