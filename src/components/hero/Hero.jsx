@@ -54,7 +54,10 @@ const Hero = () => {
           >
             ALKAN AZIZ
           </motion.h2>
-          <motion.h1 variants={textVariants} className="text-4xl z-10 md:text-7xl">
+          <motion.h1
+            variants={textVariants}
+            className="z-10 text-4xl md:text-7xl"
+          >
             Web Developer
           </motion.h1>
           <motion.div variants={textVariants} animate="scrollButton">
@@ -62,22 +65,30 @@ const Hero = () => {
           </motion.div>
         </motion.div>
         <motion.div variants={textVariants} className="buttons z-10 flex gap-5">
-          <motion.button
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            className="cursor-pointer rounded-xl border p-2 text-sm md:p-5 md:text-lg"
+          <a
+            href="/documents/Lebenslauf.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            See the Latest Works
-          </motion.button>
-          <motion.button
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            className="cursor-pointer rounded-xl border p-2 text-sm md:p-5 md:text-lg"
-          >
-            Contact Me
-          </motion.button>
+            <motion.button
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+              className="cursor-pointer rounded-xl border p-2 text-sm hover:bg-slate-200 hover:text-slate-900 active:bg-slate-300 md:p-5 md:text-lg"
+            >
+              View My CV
+            </motion.button>
+          </a>
+          <a href="#contact">
+            <motion.button
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+              className="cursor-pointer rounded-xl border p-2 text-sm hover:bg-slate-200 hover:text-slate-900 active:bg-slate-300 md:p-5 md:text-lg"
+            >
+              Contact Me
+            </motion.button>
+          </a>
         </motion.div>
       </div>
       <motion.div
