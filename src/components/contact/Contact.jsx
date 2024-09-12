@@ -77,7 +77,7 @@ const Contact = () => {
     >
       <motion.div
         variants={variants}
-        className="textContainer mt-16 flex flex-col items-center gap-3 text-center md:mt-0 md:items-start md:gap-10 md:gap-5 md:text-left"
+        className="textContainer mt-16 flex flex-col items-center gap-3 text-center md:mt-0 md:items-start md:gap-5 md:text-left"
       >
         <motion.h2
           variants={variants}
@@ -85,27 +85,14 @@ const Contact = () => {
         >
           Let's Work Together
         </motion.h2>
-        <motion.div
-          variants={variants}
-          className="item flex gap-3 md:flex-col md:gap-1"
-        >
-          <h3 className="text-lg font-black md:text-2xl">E-Mail:</h3>
+        <motion.div variants={variants} className="item flex gap-1 md:flex-col">
+          <h3 className="font-black md:text-2xl">E-Mail:</h3>
           <span className="font-normal">alkanaziz[at]gmail.com</span>
         </motion.div>
-        <motion.div
-          variants={variants}
-          className="item flex gap-3 md:flex-col md:gap-1"
-        >
-          <h3 className="text-lg font-black md:text-2xl">Phone:</h3>
-          <span className="font-normal">+49 162 9105911</span>
-        </motion.div>
-        <motion.div
-          variants={variants}
-          className="item flex gap-3 md:flex-col md:gap-1"
-        >
-          <h3 className="text-lg font-black md:text-2xl">Address:</h3>
+        <motion.div variants={variants} className="item flex gap-1 md:flex-col">
+          <h3 className="font-black md:text-2xl">Address:</h3>
           <span className="font-normal">
-            Erfurt, Germany <span className='text-xs'>(Open to move)</span>
+            Erfurt, Germany <span className="text-xs">(Open to relocate)</span>
           </span>
         </motion.div>
       </motion.div>
