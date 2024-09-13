@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "vite serve --host --port 3555",
+    "setup": "npm i && npm run build && pm2 start --name alkan-portfolio npm -- start --update-env --time && pm2 save",
+    "deploy": "git pull --no-rebase && npm i && npm run build && pm2 restart alkan-portfolio --update-env --time && pm2 save",
     "lint": "eslint .",
     "preview": "vite preview"
   },
