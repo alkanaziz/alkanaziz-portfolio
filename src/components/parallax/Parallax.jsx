@@ -28,11 +28,11 @@ const Parallax = ({ type }) => {
       ref={ref}
       className={`parallax relative flex size-full items-center justify-center overflow-hidden bg-gradient-to-b from-slate-800 ${type === 'skills' ? 'to-slate-900' : 'to-slate-700'}`}
     >
-      <motion.div className="flex flex-col items-center justify-center">
-        <motion.h1
-          style={{ y: yText }}
-          className="text-center text-6xl md:text-8xl"
-        >
+      <motion.div
+        className="flex flex-col items-center justify-center"
+        style={{ y: yText }}
+      >
+        <motion.h1 className="text-center text-6xl md:text-8xl">
           {type === 'skills' ? 'What I Can?' : 'What I Did?'}
         </motion.h1>
         <motion.div variants={scrollAnimation} animate="scrollButton">
