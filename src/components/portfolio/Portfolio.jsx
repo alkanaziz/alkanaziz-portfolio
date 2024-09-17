@@ -109,15 +109,8 @@ const SingleProject = ({ project }) => {
               className="w-11/12 rounded-xl shadow-2xl transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-125 group-hover:brightness-50"
             />
             <div className="absolute hidden h-80 w-72 flex-col justify-evenly transition-all ease-in-out group-hover:flex sm:w-80">
-              <h3 className="text-2xl font-black text-orange-400">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  aria-label={`See ${project.title} demo`}
-                  className="[text-shadow:1px_1px_orange]"
-                >
-                  {project.title}
-                </a>
+              <h3 className="text-2xl font-black text-orange-400 [text-shadow:1px_1px_orange]">
+                {project.title}
               </h3>
               <div className="flex gap-2 text-sm text-slate-200 md:text-lg">
                 <a
