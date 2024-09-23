@@ -51,6 +51,14 @@ const projects = [
     href: 'https://vue-project-movie-search.vercel.app/',
     github: 'https://github.com/alkanaziz/vue-project-workshop',
   },
+  {
+    id: 7,
+    title: 'Full-Stack E-Commerce',
+    img: '/img/Project-7.png',
+    desc: 'Our team developed a full-stack e-commerce platform using the MERN stack for our final project at DCI. The site includes features like user authentication, product search, a shopping cart, and an admin dashboard for managing products and orders.',
+    href: 'https://e-commerce.alkanaziz.com/',
+    github: 'https://github.com/WebDev-MAP/E-Commerce',
+  },
 ];
 
 const imgVariants = {
@@ -176,7 +184,7 @@ const Portfolio = () => {
         ></motion.div>
       </div>
 
-      {projects.map((project) => (
+      {[...projects].reverse().map((project) => (
         <SingleProject key={project.id} project={project} />
       ))}
     </div>
