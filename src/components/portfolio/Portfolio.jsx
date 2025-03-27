@@ -251,6 +251,23 @@ const projectTitleVariants = {
   },
 };
 
+const textContainerVariants = {
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
 const textVariants = {
   initial: {
     opacity: 0,
@@ -267,8 +284,82 @@ const textVariants = {
     filter: 'blur(0px)',
     transition: {
       duration: 0.8,
-      staggerChildren: 0.15,
       ease: [0.25, 0.1, 0.25, 1.0],
+    },
+  },
+};
+
+const headingVariants = {
+  initial: {
+    opacity: 0,
+    y: -15,
+    scale: 0.95,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const paragraphVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+    x: -10,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const buttonContainerVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.9,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.15,
+      ease: 'easeOut',
+      delay: 0.6,
+    },
+  },
+};
+
+const buttonVariants = {
+  initial: {
+    opacity: 0,
+    y: 15,
+    scale: 0.9,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+  hover: {
+    scale: 1.05,
+    boxShadow: '0 10px 15px -3px rgba(249, 115, 22, 0.4)',
+    transition: {
+      duration: 0.2,
     },
   },
 };
@@ -423,23 +514,32 @@ const SingleProject = ({ project }) => {
             </motion.div>
             <motion.div
               className="textContainer mt-3 flex flex-1 flex-col items-center gap-4 px-2 sm:gap-6 md:mt-0 md:items-start md:justify-center md:gap-8"
-              variants={textVariants}
+              variants={textContainerVariants}
               initial="initial"
               whileInView="animate"
-              viewport={{ once: false, amount: 0.4 }}
+              viewport={{ once: false, amount: 0.3 }}
             >
               <motion.h3
-                variants={textVariants}
-                className="text-center text-2xl sm:text-3xl md:text-left md:text-4xl lg:text-5xl"
+                variants={headingVariants}
+                className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl md:text-left md:text-4xl lg:text-5xl"
               >
                 {project.title}
               </motion.h3>
+
+              <motion.div
+                className="h-1 w-20 rounded-full bg-gradient-to-r from-orange-400 to-slate-700 md:w-32"
+                initial={{ width: 0, opacity: 0 }}
+                whileInView={{ width: 'auto', opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              />
+
               <motion.p
-                variants={textVariants}
-                className="text-center text-sm text-slate-300 sm:text-base md:text-left md:text-lg"
+                variants={paragraphVariants}
+                className="text-center text-sm leading-relaxed text-slate-300 sm:text-base md:text-left md:text-lg"
               >
                 {project.desc}
               </motion.p>
+
               {project.technologies && (
                 <motion.div
                   variants={textVariants}
@@ -466,6 +566,11 @@ const SingleProject = ({ project }) => {
                             initial="initial"
                             whileInView="animate"
                             custom={index}
+                            whileHover={{
+                              y: -5,
+                              scale: 1.05,
+                              transition: { duration: 0.2 },
+                            }}
                             className="relative flex items-center gap-1 overflow-hidden rounded-lg bg-slate-800/50 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-orange-400 hover:text-slate-800 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
                           >
                             <motion.div
@@ -492,11 +597,16 @@ const SingleProject = ({ project }) => {
                   ))}
                 </motion.div>
               )}
+
               <motion.div
-                variants={textVariants}
+                variants={buttonContainerVariants}
                 className="flex gap-2 sm:gap-4"
               >
-                <button className="w-36 rounded-lg bg-orange-400 p-1 text-sm hover:bg-orange-300 hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base">
+                <motion.button
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  className="w-36 rounded-lg bg-gradient-to-r from-orange-400 to-orange-500 p-1 text-sm shadow-md hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base"
+                >
                   <a
                     href={project.href}
                     target="_blank"
@@ -504,8 +614,12 @@ const SingleProject = ({ project }) => {
                   >
                     <FaExternalLinkAlt className="size-3 sm:size-4" /> Demo
                   </a>
-                </button>
-                <button className="w-36 rounded-lg bg-orange-400 p-1 text-sm hover:bg-orange-300 hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base">
+                </motion.button>
+                <motion.button
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  className="w-36 rounded-lg border border-orange-400/30 bg-gradient-to-r from-slate-700 to-slate-800 p-1 text-sm hover:border-orange-400 sm:w-48 sm:p-2 sm:text-base"
+                >
                   <a
                     href={project.github}
                     target="_blank"
@@ -513,7 +627,7 @@ const SingleProject = ({ project }) => {
                   >
                     <FaGithub className="size-3 sm:size-4" /> Code
                   </a>
-                </button>
+                </motion.button>
               </motion.div>
             </motion.div>
           </div>
