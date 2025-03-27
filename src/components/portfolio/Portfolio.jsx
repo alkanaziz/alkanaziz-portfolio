@@ -1,63 +1,189 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import {
+  FaExternalLinkAlt,
+  FaGithub,
+  FaReact,
+  FaHtml5,
+  FaCss3,
+  FaJs,
+  FaVuejs,
+  FaCloudUploadAlt,
+  FaSlidersH,
+  FaNodeJs,
+  FaDatabase,
+  FaPaypal,
+} from 'react-icons/fa';
+import {
+  TbBrandNextjs,
+  TbBrandFramerMotion,
+  TbHandFinger,
+  TbKeyboard,
+} from 'react-icons/tb';
+import {
+  SiTailwindcss,
+  SiHeadlessui,
+  SiMui,
+  SiReactrouter,
+  SiExpress,
+  SiMongodb,
+  SiVite,
+} from 'react-icons/si';
+import { HiSquares2X2 } from 'react-icons/hi2';
+import { GoPackage } from 'react-icons/go';
+import { BiImageAlt, BiMessageAltDetail } from 'react-icons/bi';
 
 const projects = [
   {
     id: 1,
-    title: 'Speaker Shop Layout',
+    title: 'UI Homepage Demo',
     img: '/img/Project-1.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    desc: 'A clean and modern UI homepage demo showcasing a speaker shop layout with responsive design and smooth interactions.',
     href: 'https://alkanaziz.github.io/layout-speaker-shop/',
     github: 'https://github.com/alkanaziz/layout-speaker-shop',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'HTML', icon: 'FaHtml5' },
+          { name: 'CSS', icon: 'FaCss3' },
+        ],
+      },
+    ],
   },
   {
     id: 2,
     title: 'Unit Converter',
     img: '/img/Project-2.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    desc: 'A unit converter application built with HTML, CSS, and JavaScript, allowing users to convert between different units of measurement.',
     href: 'https://alkanaziz.github.io/unit-converter-javascript/',
     github: 'https://github.com/alkanaziz/unit-converter-javascript/',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'HTML', icon: 'FaHtml5' },
+          { name: 'CSS', icon: 'FaCss3' },
+          { name: 'JavaScript', icon: 'FaJs' },
+        ],
+      },
+    ],
   },
   {
     id: 3,
-    title: 'Freelance Developer Page Layout',
+    title: 'Developer Page Layout',
     img: '/img/Project-3.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    desc: 'A clean and modern freelance developer page layout with responsive design and smooth interactions.',
     href: 'https://alkanaziz.github.io/freelance-developer-page-layout/',
     github: 'https://github.com/alkanaziz/freelance-developer-page-layout',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'HTML', icon: 'FaHtml5' },
+          { name: 'CSS', icon: 'FaCss3' },
+        ],
+      },
+    ],
   },
   {
     id: 4,
     title: 'Transparent Login Page',
     img: '/img/Project-4.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    desc: 'A transparent login page with responsive design and smooth interactions.',
     href: 'https://alkanaziz.github.io/data-transparent-login/',
     github: 'https://github.com/alkanaziz/data-transparent-login',
-  },
-  {
-    id: 5,
-    title: 'UI - UX Demo Page',
-    img: '/img/Project-5.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
-    href: 'https://alkanaziz.github.io/ui-ux-nonamepeople-page/',
-    github: 'https://github.com/alkanaziz/ui-ux-nonamepeople-page',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'HTML', icon: 'FaHtml5' },
+          { name: 'CSS', icon: 'FaCss3' },
+        ],
+      },
+    ],
   },
   {
     id: 6,
-    title: 'Search Movies and Add to Favorite',
+    title: 'Search Movies',
     img: '/img/Project-6.png',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.',
+    desc: 'A movie search application with responsive design and smooth interactions, allowing users to search for movies and add them to their favorites.',
     href: 'https://vue-project-movie-search.vercel.app/',
     github: 'https://github.com/alkanaziz/vue-project-workshop',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'Vue.js', icon: 'FaVuejs' },
+          { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+          { name: 'Framer Motion', icon: 'TbBrandFramerMotion' },
+          { name: 'Vue3-Toastify', icon: 'FaVuejs' },
+          { name: 'Vite', icon: 'SiVite' },
+        ],
+      },
+    ],
   },
   {
     id: 7,
     title: 'Full-Stack E-Commerce',
     img: '/img/Project-7.png',
-    desc: 'Our team developed a full-stack e-commerce platform using the MERN stack for our final project at DCI. The site includes features like user authentication, product search, a shopping cart, and an admin dashboard for managing products and orders.',
+    desc: 'Our team developed a full-stack e-commerce platform using the MERN stack for our final project at DCI.',
     href: 'https://e-commerce.alkanaziz.com/',
     github: 'https://github.com/WebDev-MAP/E-Commerce',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'React', icon: 'FaReact' },
+          { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+          { name: 'Material UI', icon: 'SiMui' },
+          { name: 'React Dropzone', icon: 'FaCloudUploadAlt' },
+          { name: 'React Slick', icon: 'FaSlidersH' },
+          { name: 'React Toastify', icon: 'BiMessageAltDetail' },
+          { name: 'Nivo Charts', icon: 'GoPackage' },
+          { name: 'Vite', icon: 'SiVite' },
+        ],
+      },
+      {
+        group: 'Backend',
+        items: [
+          { name: 'Node.js', icon: 'FaNodeJs' },
+          { name: 'Express.js', icon: 'SiExpress' },
+        ],
+      },
+      {
+        group: 'Database',
+        items: [
+          { name: 'MongoDB', icon: 'SiMongodb' },
+          { name: 'Mongoose', icon: 'FaDatabase' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: 'Artist Portfolio',
+    img: '/img/Project-8.png',
+    desc: 'Eine Portfolio-Website für einen Künstler (bostanci-art.alkanaziz.com) mit effizienter Galerie-Funktionalität',
+    href: 'https://bostanci-art.alkanaziz.com/',
+    github: 'https://github.com/alkanaziz/mehmet-bostanci-portfolio',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'React', icon: 'FaReact' },
+          { name: 'Next.js', icon: 'TbBrandNextjs' },
+          { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+          { name: 'Headless UI', icon: 'SiHeadlessui' },
+          { name: 'Heroicons', icon: 'HiSquares2X2' },
+          { name: 'React Icons', icon: 'GoPackage' },
+          { name: 'Framer Motion', icon: 'TbBrandFramerMotion' },
+          { name: 'Plaiceholder', icon: 'BiImageAlt' },
+          { name: 'React Swipeable', icon: 'TbHandFinger' },
+          { name: 'React Use Keypress', icon: 'TbKeyboard' },
+        ],
+      },
+    ],
   },
 ];
 
@@ -91,77 +217,218 @@ const textVariants = {
   },
 };
 
+const techItemVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: (index) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: index * 0.1,
+      ease: 'easeOut',
+    },
+  }),
+};
+
+const techBackgroundVariants = {
+  initial: {
+    width: '0%',
+  },
+  animate: (index) => ({
+    width: '100%',
+    transition: {
+      duration: 1.5,
+      delay: index * 2,
+      ease: 'easeInOut',
+    },
+  }),
+};
+
+const techTextVariants = {
+  initial: {
+    color: '#94a3b8', // text-slate-300
+  },
+  animate: (index) => ({
+    color: '#1e293b', // text-slate-800
+    transition: {
+      duration: 1.5,
+      delay: index * 2,
+    },
+  }),
+};
+
 const SingleProject = ({ project }) => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ['start start', 'end start'],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
+  const getIcon = (iconName) => {
+    switch (iconName) {
+      case 'FaReact':
+        return <FaReact className="size-5 sm:size-6" />;
+      case 'TbBrandNextjs':
+        return <TbBrandNextjs className="size-5 sm:size-6" />;
+      case 'SiTailwindcss':
+        return <SiTailwindcss className="size-5 sm:size-6" />;
+      case 'SiHeadlessui':
+        return <SiHeadlessui className="size-5 sm:size-6" />;
+      case 'HiSquares2X2':
+        return <HiSquares2X2 className="size-5 sm:size-6" />;
+      case 'GoPackage':
+        return <GoPackage className="size-5 sm:size-6" />;
+      case 'TbBrandFramerMotion':
+        return <TbBrandFramerMotion className="size-5 sm:size-6" />;
+      case 'BiImageAlt':
+        return <BiImageAlt className="size-5 sm:size-6" />;
+      case 'TbHandFinger':
+        return <TbHandFinger className="size-5 sm:size-6" />;
+      case 'TbKeyboard':
+        return <TbKeyboard className="size-5 sm:size-6" />;
+      case 'FaHtml5':
+        return <FaHtml5 className="size-5 sm:size-6" />;
+      case 'FaCss3':
+        return <FaCss3 className="size-5 sm:size-6" />;
+      case 'FaJs':
+        return <FaJs className="size-5 sm:size-6" />;
+      case 'FaVuejs':
+        return <FaVuejs className="size-5 sm:size-6" />;
+      case 'SiVite':
+        return <SiVite className="size-5 sm:size-6" />;
+      case 'SiMui':
+        return <SiMui className="size-5 sm:size-6" />;
+      case 'SiReactrouter':
+        return <SiReactrouter className="size-5 sm:size-6" />;
+      case 'FaCloudUploadAlt':
+        return <FaCloudUploadAlt className="size-5 sm:size-6" />;
+      case 'FaSlidersH':
+        return <FaSlidersH className="size-5 sm:size-6" />;
+      case 'BiMessageAltDetail':
+        return <BiMessageAltDetail className="size-5 sm:size-6" />;
+      case 'SiExpress':
+        return <SiExpress className="size-5 sm:size-6" />;
+      case 'SiMongodb':
+        return <SiMongodb className="size-5 sm:size-6" />;
+      case 'FaDatabase':
+        return <FaDatabase className="size-5 sm:size-6" />;
+      case 'FaPaypal':
+        return <FaPaypal className="size-5 sm:size-6" />;
+      case 'FaNodeJs':
+        return <FaNodeJs className="size-5 sm:size-6" />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <section className="project h-screen snap-center">
-      <div className="container m-auto flex size-full items-center justify-center overflow-hidden">
-        <div className="wrapper mx-5 mt-36 flex h-full max-w-7xl flex-col items-center justify-center md:m-0 md:flex-row md:gap-12">
-          <motion.div
-            variants={imgVariants}
-            initial="initial"
-            whileInView="animate"
-            className="imageContainer group flex h-1/2 max-h-96 max-w-96 flex-1 items-center justify-center overflow-hidden rounded-xl hover:border"
-            ref={ref}
-          >
-            <img
-              src={project.img}
-              alt={project.title}
-              className="w-11/12 rounded-xl shadow-2xl transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-125 group-hover:brightness-50"
-            />
-            <div className="absolute hidden h-80 w-72 flex-col justify-evenly transition-all ease-in-out group-hover:flex sm:w-80">
-              <h3 className="text-2xl font-black text-orange-400 [text-shadow:1px_1px_orange]">
+    <div className="h-screen snap-center overflow-hidden">
+      <div className="flex h-full items-center justify-center">
+        <div className="container px-3 sm:px-4 md:px-0">
+          <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
+            <motion.div
+              variants={imgVariants}
+              initial="initial"
+              whileInView="animate"
+              className="imageContainer group flex h-1/3 max-h-64 w-full max-w-xs flex-1 items-center justify-center overflow-hidden rounded-xl hover:border sm:h-1/2 sm:max-h-80 sm:max-w-sm md:max-h-96 md:max-w-md"
+              ref={ref}
+            >
+              <img
+                src={project.img}
+                alt={project.title}
+                className="h-full w-full rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-125 group-hover:brightness-50"
+              />
+              <div className="absolute hidden h-full w-full flex-col justify-evenly transition-all ease-in-out group-hover:flex sm:w-80">
+                <h3 className="text-xl font-black text-orange-400 [text-shadow:1px_1px_orange] sm:text-2xl">
+                  {project.title}
+                </h3>
+              </div>
+            </motion.div>
+            <motion.div
+              className="textContainer mt-3 flex flex-1 flex-col items-center gap-4 px-2 sm:gap-6 md:mt-0 md:items-start md:justify-center md:gap-8"
+              variants={textVariants}
+              initial="initial"
+              whileInView="animate"
+            >
+              <h3 className="text-center text-2xl sm:text-3xl md:text-left md:text-4xl lg:text-5xl">
                 {project.title}
               </h3>
-              <div className="flex gap-2 text-sm text-slate-200 md:text-lg">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  aria-label={`See ${project.title} demo`}
-                >
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
-                    <FaExternalLinkAlt className="size-4" /> Demo
-                  </button>
-                </a>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  aria-label={`See ${project.title} code`}
-                >
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
-                    Code <FaGithub className="size-4" />
-                  </button>
-                </a>
+              <p className="text-center text-sm text-slate-300 sm:text-base md:text-left md:text-lg">
+                {project.desc}
+              </p>
+              {project.technologies && (
+                <div className="flex w-full flex-col gap-2 sm:gap-4">
+                  {project.technologies.map((techGroup, groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className="flex flex-col gap-1 sm:gap-2"
+                    >
+                      {project.technologies.length > 1 && (
+                        <h4 className="text-base font-semibold text-orange-400 sm:text-lg">
+                          {techGroup.group}
+                        </h4>
+                      )}
+                      <div className="flex flex-wrap gap-1 sm:gap-2">
+                        {techGroup.items.map((tech, index) => (
+                          <motion.div
+                            key={index}
+                            variants={techItemVariants}
+                            initial="initial"
+                            whileInView="animate"
+                            custom={index}
+                            className="relative flex items-center gap-1 overflow-hidden rounded-lg bg-slate-800/50 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-orange-400 hover:text-slate-800 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
+                          >
+                            <motion.div
+                              variants={techBackgroundVariants}
+                              initial="initial"
+                              whileInView="animate"
+                              custom={index}
+                              className="absolute inset-0 bg-orange-400"
+                              style={{ zIndex: -1 }}
+                            />
+                            {getIcon(tech.icon)}
+                            <motion.span
+                              variants={techTextVariants}
+                              initial="initial"
+                              whileInView="animate"
+                              custom={index}
+                            >
+                              {tech.name}
+                            </motion.span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="flex gap-2 sm:gap-4">
+                <button className="w-36 rounded-lg bg-orange-400 p-1 text-sm hover:bg-orange-300 hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base">
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    className="flex items-center justify-center gap-1 sm:gap-2"
+                  >
+                    <FaExternalLinkAlt className="size-3 sm:size-4" /> Demo
+                  </a>
+                </button>
+                <button className="w-36 rounded-lg bg-orange-400 p-1 text-sm hover:bg-orange-300 hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="flex items-center justify-center gap-1 sm:gap-2"
+                  >
+                    <FaGithub className="size-3 sm:size-4" /> Code
+                  </a>
+                </button>
               </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="textContainer mt-3 flex flex-1 flex-col items-center gap-8 md:mt-0 md:items-start md:justify-center"
-            // style={{ y }}
-            variants={textVariants}
-            initial="initial"
-            whileInView="animate"
-          >
-            <h3 className="text-center text-3xl md:text-left md:text-7xl">
-              {project.title}
-            </h3>
-            {/* <p className="text-lg md:text-xl">{project.desc}</p> */}
-            <button className="w-48 rounded-lg bg-orange-400 p-2 hover:bg-orange-300 hover:text-slate-800">
-              <a href={project.href} target="_blank">
-                See Demo
-              </a>
-            </button>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -176,11 +443,11 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio relative" ref={ref}>
-      <div className="progress sticky left-0 top-0 z-10 pt-8 text-center text-3xl font-black text-orange-400 md:text-4xl">
+      <div className="progress sticky left-0 top-0 z-10 pt-4 text-center text-2xl font-black text-orange-400 sm:pt-6 sm:text-3xl md:pt-8 md:text-4xl">
         <h2>Demo Works</h2>
         <motion.div
           style={{ scaleX }}
-          className="progressBar h-2 rounded-full bg-slate-300"
+          className="progressBar h-1 rounded-full bg-slate-300 sm:h-2"
         ></motion.div>
       </div>
 
