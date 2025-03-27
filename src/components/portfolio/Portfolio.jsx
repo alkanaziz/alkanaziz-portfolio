@@ -9,10 +9,8 @@ import {
   FaJs,
   FaVuejs,
   FaCloudUploadAlt,
-  FaSlidersH,
   FaNodeJs,
   FaDatabase,
-  FaPaypal,
 } from 'react-icons/fa';
 import {
   TbBrandNextjs,
@@ -24,7 +22,6 @@ import {
   SiTailwindcss,
   SiHeadlessui,
   SiMui,
-  SiReactrouter,
   SiExpress,
   SiMongodb,
   SiVite,
@@ -136,7 +133,6 @@ const projects = [
           { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
           { name: 'Material UI', icon: 'SiMui' },
           { name: 'React Dropzone', icon: 'FaCloudUploadAlt' },
-          { name: 'React Slick', icon: 'FaSlidersH' },
           { name: 'React Toastify', icon: 'BiMessageAltDetail' },
           { name: 'Nivo Charts', icon: 'GoPackage' },
           { name: 'Vite', icon: 'SiVite' },
@@ -162,14 +158,13 @@ const projects = [
     id: 8,
     title: 'Artist Portfolio',
     img: '/img/Project-8.png',
-    desc: 'Eine Portfolio-Website für einen Künstler (bostanci-art.alkanaziz.com) mit effizienter Galerie-Funktionalität',
+    desc: 'An artist portfolio website with efficient gallery functionality',
     href: 'https://bostanci-art.alkanaziz.com/',
     github: 'https://github.com/alkanaziz/mehmet-bostanci-portfolio',
     technologies: [
       {
         group: 'Frontend',
         items: [
-          { name: 'React', icon: 'FaReact' },
           { name: 'Next.js', icon: 'TbBrandNextjs' },
           { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
           { name: 'Headless UI', icon: 'SiHeadlessui' },
@@ -387,8 +382,8 @@ const techBackgroundVariants = {
   animate: (index) => ({
     width: '100%',
     transition: {
-      duration: 1.5,
-      delay: index * 2,
+      duration: 0.8,
+      delay: index * 0.5,
       ease: 'easeInOut',
     },
   }),
@@ -401,8 +396,8 @@ const techTextVariants = {
   animate: (index) => ({
     color: '#1e293b', // text-slate-800
     transition: {
-      duration: 1.5,
-      delay: index * 2,
+      duration: 0.8,
+      delay: index * 0.5,
     },
   }),
 };
@@ -449,12 +444,8 @@ const SingleProject = ({ project }) => {
         return <SiVite className="size-5 sm:size-6" />;
       case 'SiMui':
         return <SiMui className="size-5 sm:size-6" />;
-      case 'SiReactrouter':
-        return <SiReactrouter className="size-5 sm:size-6" />;
       case 'FaCloudUploadAlt':
         return <FaCloudUploadAlt className="size-5 sm:size-6" />;
-      case 'FaSlidersH':
-        return <FaSlidersH className="size-5 sm:size-6" />;
       case 'BiMessageAltDetail':
         return <BiMessageAltDetail className="size-5 sm:size-6" />;
       case 'SiExpress':
@@ -463,8 +454,6 @@ const SingleProject = ({ project }) => {
         return <SiMongodb className="size-5 sm:size-6" />;
       case 'FaDatabase':
         return <FaDatabase className="size-5 sm:size-6" />;
-      case 'FaPaypal':
-        return <FaPaypal className="size-5 sm:size-6" />;
       case 'FaNodeJs':
         return <FaNodeJs className="size-5 sm:size-6" />;
       default:
@@ -648,10 +637,17 @@ const Portfolio = () => {
   return (
     <div className="portfolio relative" ref={ref}>
       <div className="progress sticky left-0 top-0 z-10 pt-4 text-center text-2xl font-black text-orange-400 sm:pt-6 sm:text-3xl md:pt-8 md:text-4xl">
-        <h2>Demo Works</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="bg-gradient-to-r from-orange-400 to-amber-200 bg-clip-text font-bold text-transparent"
+        >
+          My Works
+        </motion.h2>
         <motion.div
           style={{ scaleX }}
-          className="progressBar h-1 rounded-full bg-slate-300 sm:h-2"
+          className="progressBar h-1 rounded-full bg-gradient-to-r from-orange-400 to-slate-700 sm:h-2"
         ></motion.div>
       </div>
 
