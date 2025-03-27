@@ -587,6 +587,7 @@ const SingleProject = ({ project }) => {
                               initial="initial"
                               whileInView="animate"
                               custom={index}
+                              className="select-none md:select-text"
                             >
                               {tech.name}
                             </motion.span>
