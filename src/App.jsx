@@ -26,7 +26,7 @@ export default function App() {
         <Parallax type="portfolio" />
       </section>
       <Portfolio />
-      <section id="contact" className="snap-center h-screen">
+      <section id="contact" className="h-screen snap-center">
         <Contact />
         <Footer />
       </section>
