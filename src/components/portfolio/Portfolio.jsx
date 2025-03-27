@@ -115,8 +115,6 @@ const projects = [
         group: 'Frontend',
         items: [
           { name: 'Vue.js', icon: 'FaVuejs' },
-          { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
-          { name: 'Framer Motion', icon: 'TbBrandFramerMotion' },
           { name: 'Vue3-Toastify', icon: 'FaVuejs' },
           { name: 'Vite', icon: 'SiVite' },
         ],
