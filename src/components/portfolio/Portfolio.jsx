@@ -253,15 +253,22 @@ const projectTitleVariants = {
 
 const textVariants = {
   initial: {
-    y: -300,
     opacity: 0,
+    rotateX: 30,
+    scale: 0.9,
+    transformPerspective: 1000,
+    filter: 'blur(8px)',
   },
   animate: {
-    y: 0,
     opacity: 1,
+    rotateX: 0,
+    scale: 1,
+    transformPerspective: 1000,
+    filter: 'blur(0px)',
     transition: {
-      duration: 1,
-      staggerChildren: 0.1,
+      duration: 0.8,
+      staggerChildren: 0.15,
+      ease: [0.25, 0.1, 0.25, 1.0],
     },
   },
 };
@@ -269,12 +276,16 @@ const textVariants = {
 const techItemVariants = {
   initial: {
     opacity: 0,
+    x: -20,
+    scale: 0.9,
   },
   animate: (index) => ({
     opacity: 1,
+    x: 0,
+    scale: 1,
     transition: {
       duration: 0.5,
-      delay: index * 0.1,
+      delay: 0.2 + index * 0.06,
       ease: 'easeOut',
     },
   }),
@@ -415,24 +426,37 @@ const SingleProject = ({ project }) => {
               variants={textVariants}
               initial="initial"
               whileInView="animate"
+              viewport={{ once: false, amount: 0.4 }}
             >
-              <h3 className="text-center text-2xl sm:text-3xl md:text-left md:text-4xl lg:text-5xl">
+              <motion.h3
+                variants={textVariants}
+                className="text-center text-2xl sm:text-3xl md:text-left md:text-4xl lg:text-5xl"
+              >
                 {project.title}
-              </h3>
-              <p className="text-center text-sm text-slate-300 sm:text-base md:text-left md:text-lg">
+              </motion.h3>
+              <motion.p
+                variants={textVariants}
+                className="text-center text-sm text-slate-300 sm:text-base md:text-left md:text-lg"
+              >
                 {project.desc}
-              </p>
+              </motion.p>
               {project.technologies && (
-                <div className="flex w-full flex-col gap-2 sm:gap-4">
+                <motion.div
+                  variants={textVariants}
+                  className="flex w-full flex-col gap-2 sm:gap-4"
+                >
                   {project.technologies.map((techGroup, groupIndex) => (
                     <div
                       key={groupIndex}
                       className="flex flex-col gap-1 sm:gap-2"
                     >
                       {project.technologies.length > 1 && (
-                        <h4 className="text-base font-semibold text-orange-400 sm:text-lg">
+                        <motion.h4
+                          variants={textVariants}
+                          className="text-base font-semibold text-orange-400 sm:text-lg"
+                        >
                           {techGroup.group}
-                        </h4>
+                        </motion.h4>
                       )}
                       <div className="flex flex-wrap gap-1 sm:gap-2">
                         {techGroup.items.map((tech, index) => (
@@ -466,9 +490,12 @@ const SingleProject = ({ project }) => {
                       </div>
                     </div>
                   ))}
-                </div>
+                </motion.div>
               )}
-              <div className="flex gap-2 sm:gap-4">
+              <motion.div
+                variants={textVariants}
+                className="flex gap-2 sm:gap-4"
+              >
                 <button className="w-36 rounded-lg bg-orange-400 p-1 text-sm hover:bg-orange-300 hover:text-slate-800 sm:w-48 sm:p-2 sm:text-base">
                   <a
                     href={project.href}
@@ -487,7 +514,7 @@ const SingleProject = ({ project }) => {
                     <FaGithub className="size-3 sm:size-4" /> Code
                   </a>
                 </button>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
