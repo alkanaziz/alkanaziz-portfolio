@@ -189,15 +189,64 @@ const projects = [
 
 const imgVariants = {
   initial: {
-    y: 500,
+    scale: 0.8,
     opacity: 0,
+    rotateY: 90,
   },
   animate: {
-    y: 0,
+    scale: 1,
+    opacity: 1,
+    rotateY: 0,
+    transition: {
+      duration: 1.2,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const imageHoverVariants = {
+  initial: {
+    scale: 1,
+    rotate: 0,
+    filter: 'brightness(100%)',
+  },
+  hover: {
+    scale: 1.1,
+    rotate: 0,
+    filter: 'brightness(50%)',
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+const circleMaskVariants = {
+  initial: {
+    scale: 0,
+    opacity: 0,
+  },
+  hover: {
+    scale: 1,
     opacity: 1,
     transition: {
-      duration: 1,
-      staggerChildren: 0.1,
+      duration: 0.4,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+const projectTitleVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      delay: 0.1,
     },
   },
 };
@@ -332,19 +381,34 @@ const SingleProject = ({ project }) => {
               variants={imgVariants}
               initial="initial"
               whileInView="animate"
-              className="imageContainer group flex h-1/3 max-h-64 w-full max-w-xs flex-1 items-center justify-center overflow-hidden rounded-xl hover:border sm:h-1/2 sm:max-h-80 sm:max-w-sm md:max-h-96 md:max-w-md"
+              whileHover="hover"
+              className="imageContainer perspective-1000 group relative flex h-1/3 max-h-64 w-full max-w-xs flex-1 items-center justify-center overflow-hidden rounded-xl sm:h-1/2 sm:max-h-80 sm:max-w-sm md:max-h-96 md:max-w-md"
               ref={ref}
             >
-              <img
+              <motion.div
+                className="absolute z-10 h-full w-full"
+                variants={circleMaskVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <div className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-orange-400/90 to-slate-800/90 blur-md" />
+              </motion.div>
+              <motion.img
                 src={project.img}
                 alt={project.title}
-                className="h-full w-full rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-125 group-hover:brightness-50"
+                variants={imageHoverVariants}
+                className="h-full w-full rounded-xl object-cover shadow-2xl"
               />
-              <div className="absolute hidden h-full w-full flex-col justify-evenly transition-all ease-in-out group-hover:flex sm:w-80">
-                <h3 className="text-xl font-black text-orange-400 [text-shadow:1px_1px_orange] sm:text-2xl">
+              <motion.div
+                className="absolute flex h-full w-full flex-col items-center justify-center"
+                variants={projectTitleVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <h3 className="text-xl font-black text-white drop-shadow-lg sm:text-2xl">
                   {project.title}
                 </h3>
-              </div>
+              </motion.div>
             </motion.div>
             <motion.div
               className="textContainer mt-3 flex flex-1 flex-col items-center gap-4 px-2 sm:gap-6 md:mt-0 md:items-start md:justify-center md:gap-8"
