@@ -66,7 +66,7 @@ const Hero = () => {
         </motion.div>
         <motion.div variants={textVariants} className="buttons z-10 flex gap-5">
           <a
-            href="/documents/Lebenslauf.pdf"
+            href="/documents/Lebenslauf_Aziz,Alkan.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
