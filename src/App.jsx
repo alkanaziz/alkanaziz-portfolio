@@ -1,6 +1,5 @@
 import './app.scss';
 import Contact from './components/contact/Contact';
-import Cursor from './components/cursor/Cursor';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
@@ -11,7 +10,6 @@ import Skills from './components/skills/Skills';
 export default function App() {
   return (
     <div>
-      <Cursor />
       <section id="home" className="h-screen snap-center">
         <Navbar />
         <Hero />
