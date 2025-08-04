@@ -208,6 +208,7 @@ const projects = [
           { name: 'OpenAI API', icon: 'SiOpenai' },
           { name: 'Polygon API', icon: 'PolygonApi' },
           { name: 'Next.js API Routes', icon: 'TbApi' },
+          { name: 'Cloudflare Worker', icon: 'SiCloudflare' },
         ],
       },
       {
