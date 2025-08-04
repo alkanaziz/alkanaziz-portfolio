@@ -1,5 +1,6 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -17,6 +18,7 @@ import {
   TbBrandFramerMotion,
   TbHandFinger,
   TbKeyboard,
+  TbApi,
 } from 'react-icons/tb';
 import {
   SiTailwindcss,
@@ -25,6 +27,10 @@ import {
   SiExpress,
   SiMongodb,
   SiVite,
+  SiTypescript,
+  SiOpenai,
+  SiEslint,
+  SiCloudflare,
 } from 'react-icons/si';
 import { HiSquares2X2 } from 'react-icons/hi2';
 import { GoPackage } from 'react-icons/go';
@@ -174,6 +180,42 @@ const projects = [
           { name: 'Plaiceholder', icon: 'BiImageAlt' },
           { name: 'React Swipeable', icon: 'TbHandFinger' },
           { name: 'React Use Keypress', icon: 'TbKeyboard' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: 'Stock Predictions',
+    img: '/img/Project-9.jpg',
+    desc: 'AI-powered stock prediction application with OpenAI API integration and modern design',
+    href: 'https://stock-predictions-cka.pages.dev/',
+    github: 'https://github.com/alkanaziz/stock-predictions/tree/main',
+    technologies: [
+      {
+        group: 'Frontend',
+        items: [
+          { name: 'Next.js', icon: 'TbBrandNextjs' },
+          { name: 'React', icon: 'FaReact' },
+          { name: 'TypeScript', icon: 'SiTypescript' },
+          { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+          { name: 'React Icons', icon: 'GoPackage' },
+        ],
+      },
+      {
+        group: 'Backend & AI',
+        items: [
+          { name: 'OpenAI API', icon: 'SiOpenai' },
+          { name: 'Polygon API', icon: 'PolygonApi' },
+          { name: 'Next.js API Routes', icon: 'TbApi' },
+        ],
+      },
+      {
+        group: 'Development & Deployment',
+        items: [
+          { name: 'ESLint', icon: 'SiEslint' },
+          { name: 'Cloudflare Pages', icon: 'SiCloudflare' },
+          { name: 'Wrangler', icon: 'SiCloudflare' },
         ],
       },
     ],
@@ -404,11 +446,6 @@ const techTextVariants = {
 
 const SingleProject = ({ project }) => {
   const ref = useRef();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   const getIcon = (iconName) => {
     switch (iconName) {
@@ -456,6 +493,24 @@ const SingleProject = ({ project }) => {
         return <FaDatabase className="size-5 sm:size-6" />;
       case 'FaNodeJs':
         return <FaNodeJs className="size-5 sm:size-6" />;
+      case 'SiTypescript':
+        return <SiTypescript className="size-5 sm:size-6" />;
+      case 'SiOpenai':
+        return <SiOpenai className="size-5 sm:size-6" />;
+      case 'TbApi':
+        return <TbApi className="size-5 sm:size-6" />;
+      case 'PolygonApi':
+        return (
+          <img
+            src="/polygon-icon.svg"
+            alt="Polygon API"
+            className="size-5 rounded-full bg-white p-1 sm:size-6"
+          />
+        );
+      case 'SiEslint':
+        return <SiEslint className="size-5 sm:size-6" />;
+      case 'SiCloudflare':
+        return <SiCloudflare className="size-5 sm:size-6" />;
       default:
         return null;
     }
@@ -623,6 +678,28 @@ const SingleProject = ({ project }) => {
       </div>
     </div>
   );
+};
+
+SingleProject.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(
+      PropTypes.shape({
+        group: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+          })
+        ).isRequired,
+      })
+    ),
+  }).isRequired,
 };
 
 const Portfolio = () => {
