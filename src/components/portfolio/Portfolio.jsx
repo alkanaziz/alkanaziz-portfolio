@@ -186,10 +186,10 @@ const projects = [
   },
   {
     id: 9,
-    title: 'Stock Predictions',
+    title: 'Stock Predictions AI App',
     img: '/img/Project-9.jpg',
     desc: 'AI-powered stock prediction application with OpenAI API integration and modern design',
-    href: 'https://stock-predictions-cka.pages.dev/',
+    href: 'https://stock-predictions-ai-app-alkan.pages.dev/',
     github: 'https://github.com/alkanaziz/stock-predictions/tree/main',
     technologies: [
       {
