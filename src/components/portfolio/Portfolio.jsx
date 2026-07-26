@@ -16,6 +16,7 @@ import {
 import {
   TbBrandNextjs,
   TbBrandFramerMotion,
+  TbBrandOpenai,
   TbHandFinger,
   TbKeyboard,
   TbApi,
@@ -28,7 +29,6 @@ import {
   SiMongodb,
   SiVite,
   SiTypescript,
-  SiOpenai,
   SiEslint,
   SiCloudflare,
 } from 'react-icons/si';
@@ -497,7 +497,7 @@ const SingleProject = ({ project }) => {
       case 'SiTypescript':
         return <SiTypescript className="size-5 sm:size-6" />;
       case 'SiOpenai':
-        return <SiOpenai className="size-5 sm:size-6" />;
+        return <TbBrandOpenai className="size-5 sm:size-6" />;
       case 'TbApi':
         return <TbApi className="size-5 sm:size-6" />;
       case 'PolygonApi':
